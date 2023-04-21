@@ -49,12 +49,11 @@ class Personne{
     }    
     public function setFilm($film){
         $this->_film [] = $film;
-        return $this;
     }
 
     public function filmographie(){
         $result ="";
-        echo "$this->_nom $this->_prenom ajoué dans, ";
+
         foreach($this->_film as $films){
             $result .= $films->getTitre().", ";
         }
@@ -69,8 +68,14 @@ class Realisateur extends Personne{
     }
 
     public function filmographie(){
-        parent::filmographie();
+        $result ="";
+        echo  $this->getPrenom()." ". $this->getNom()." a réalisé ";
+        foreach($this->getFilm() as $films){
+            $result .= $films->getTitre().", ";
+        }
+        return $result."<br>";
     }
+
 }
 
 class Acteur extends Personne{
@@ -79,7 +84,13 @@ class Acteur extends Personne{
     }
 
     public function filmographie(){
-        parent::filmographie();
+        $result ="";
+        echo $this->getNom()." ". $this->getPrenom() ." a joué dans";
+        foreach($this->getFilm() as $films){
+            $result .= $films->getTitre().", ";
+        }
+        return $result."<br>";
+        
     }
 }
 ?>
