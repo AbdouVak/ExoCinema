@@ -4,12 +4,15 @@ class Personne{
     private string $_prenom;
     private string $_sexe;
     private string $_dateNaissance;
+    private array $_film;
+
 
     public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance){
         $this->_nom = $nom;
         $this->_prenom = $prenom;
         $this->_sexe = $sexe;
         $this->_dateNaissance = $dateNaissance;
+        $this->_film = [];
 
     }
 
@@ -41,23 +44,42 @@ class Personne{
         $this->_dateNaissance = $dateNaissance;
     }
 
+    public function getFilm(){
+        return $this->_film;
+    }    
+    public function setFilm($film){
+        $this->_film [] = $film;
+        return $this;
+    }
+
+    public function filmographie(){
+        $result ="";
+        echo "$this->_nom $this->_prenom ajoué dans, ";
+        foreach($this->_film as $films){
+            $result .= $films->getTitre().", ";
+        }
+        return $result;
+    }
+
 }
 
 class Realisateur extends Personne{
     public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance){
         parent::__construct($nom, $prenom, $sexe, $dateNaissance);
     }
+
+    public function filmographie(){
+        parent::filmographie();
+    }
 }
 
 class Acteur extends Personne{
-    private Casting $_casting;
-
     public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance){
         parent::__construct($nom, $prenom, $sexe, $dateNaissance);
     }
 
-    public function addCasting(Casting $casting){
-        $this->_casting[] = $casting;
+    public function filmographie(){
+        parent::filmographie();
     }
 }
 ?>
