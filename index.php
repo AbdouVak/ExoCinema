@@ -18,14 +18,13 @@ $StarWars = new Film("Star Wars",$GeorgeL,$SF, "1980-05-06", 114);
 
 $LukeS = new Role("Luke Skywalker");
 $MarkH = new Acteur("Hamill", "Mark" ,"homme" ,"1964-08-14",$LukeS);
-$CastingLS = new Casting($MarkH,$LukeS);
+$CastingLS = new Casting($MarkH,$LukeS,$StarWars);
 
 $HanS = new Role("Han Solo");
 $HarrisonF = new Acteur("Harrinson", "Ford" ,"homme" ,"1942-07-13",$HanS);
-$CastingHS = new Casting($HarrisonF,$HanS);
+$CastingHS = new Casting($HarrisonF,$HanS,$StarWars);
 
-$StarWars->addCasting($CastingLS);
-$StarWars->addCasting($CastingHS);
+echo $MarkH->filmographie();
 echo $StarWars->afficherCasting();
 
 ?>
