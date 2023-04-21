@@ -16,6 +16,9 @@ class Film{
         $this->_dateSortie = new DateTime($dateSortie) ;
         $this->_duree = $duree;
         $this->_casting = [];
+
+        $this->_realisateur->setFilm($this);
+        $this->_genre->addFilms($this);
     }
 
     public function getTitre() :string{
@@ -69,9 +72,10 @@ class Film{
         $result ="";
         echo "Dans le film $this->_titre, ";
         foreach($this->_casting as $casting){
-            $result .= $casting->getRole()->getNom()."a été incarné par ".$casting->getActeur()->getNom()." ".$casting->getActeur()->getPrenom().", ";
+            $result .= $casting->getRole()->getNom()." a été incarné par ".$casting->getActeur()->getNom()." ".$casting->getActeur()->getPrenom().", ";
+
         }
-        return $result;
+        return $result."<br>";
     }
 }
 ?>
