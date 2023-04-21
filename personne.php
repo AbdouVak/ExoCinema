@@ -50,12 +50,10 @@ class Realisateur extends Personne{
 }
 
 class Acteur extends Personne{
-    private Role $_role;
     private Casting $_casting;
 
-    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance,Role $role){
+    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance){
         parent::__construct($nom, $prenom, $sexe, $dateNaissance);
-        $this->_role =$role;
     }
 
     public function addCasting(Casting $casting){
