@@ -9,8 +9,17 @@ class Casting{
     }
 
     public function getActeur(){
-        return $this->_acteur->getNom();
+        return $this->_acteur;
     }
-    
+    public function setActeur($acteur){
+        $this->_acteur = $acteur;
+    }
+
+    public function getRole(){
+        return $this->_role;
+    }
+    public function setRole($role){
+        $this->_role = $role;
+    }
 }
 ?>
