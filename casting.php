@@ -9,7 +9,11 @@ class Casting{
         $this->_acteur = $acteur;
         $this->_role = $role;
         $this->_film = $film;
+
+
+        $this->_film->addCasting($this);
         $this->_acteur->setFilm($film);
+        $this->_role->addFilms($acteur);
     }
 
     public function getActeur(){
