@@ -24,7 +24,10 @@ $HanS = new Role("Han Solo");
 $HarrisonF = new Acteur("Harrinson", "Ford" ,"homme" ,"1942-07-13",$HanS);
 $CastingHS = new Casting($HarrisonF,$HanS,$StarWars);
 
-echo $MarkH->filmographie();
+echo $HanS->listeRoleIncarner();
 echo $StarWars->afficherCasting();
+echo $SF->listeFilms();
+echo $GeorgeL->filmographie();
+echo $MarkH->filmographie();
 
 ?>
