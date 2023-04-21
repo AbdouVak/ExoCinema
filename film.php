@@ -7,7 +7,7 @@ class Film{
     private Genre $_genre;    
     private string $_dateSortie;
     private int $_duree;
-    private Casting $_casting;
+    private array $_casting;
 
     public function __construct(string $titre,Realisateur $realisateur,Genre $genre,string $dateSortie, int $duree){
         $this->_titre = $titre;
@@ -32,9 +32,11 @@ class Film{
 
     public function afficherCasting(){
         $result ="";
+        echo "Dans le film $this->_titre, ";
         foreach($this->_casting as $casting){
-            $result .= $casting->getNom()." ";
+            $result .= $casting->getRole()->getNom()."a été incarné par ".$casting->getActeur()->getNom()." ".$casting->getActeur()->getPrenom().", ";
         }
+        return $result;
     }
 }
 ?>
